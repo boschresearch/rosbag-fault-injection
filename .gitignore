@@ -1,0 +1,8 @@
+data/*
+src/__pycache__/*
+src/*.html
+log/*
+build/*
+install/*
+plot/*
+csv/*

@@ -1,0 +1,45 @@
+# fault type            | data type      | description
+# ----------------------------------------------------------------------------------------------------------------
+# add                   | int / float    | add a constant value x
+# replace               | int / float    | replace with a constant value x
+# random_add            | int / float    | add random values in [x,y] for each timestamp
+# random_replace        | int / float    | replace with random values in [x,y] for each timestamp
+
+# filter type                             | description
+# ----------------------------------------------------------------------------------------------------------------
+# show_amplitude_greater_than_or_equal_to | show only amplitude greater than or equal to a constant value x
+# show_amplitude_less_than_or_equal_to    | show only amplitude smaller than or equal to a constant value x
+# show_amplitude_between                  | show only amplitude in between [x,y]
+
+seed: 100
+
+custom_message_path:
+  - /app/interfaces/msg/BoolWithHeader.msg
+  - /app/interfaces/msg/IntWithHeader.msg
+
+parameters:
+  - input: "./data/input/"
+    topic_mask_filter: [generator2multiplier, multiplier2feedback]
+    topics:
+      - topic: generator2multiplier
+        type: .data
+        fault_type: add
+        fault_value: 10
+        start_after_sec: 1.5
+        duration_sec: 7 
+      - topic: multiplier2feedback
+        type: .data
+        fault_type: add
+        fault_value: 3
+    filters:
+      - topic: generator2multiplier
+        type: data
+        filter_type: show_amplitude_between
+        filter_value: 5, 13
+        filter_window_size: 3
+        pass_size: 2
+      - topic: multiplier2feedback
+        type: data
+        filter_type: show_amplitude_greater_than_or_equal_to
+        filter_value: 5
+        filter_window_size: 0
