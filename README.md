@@ -68,4 +68,4 @@ A1. Delete the line with `credsStore` from `~/.docker/config.json` on WSL2.
 
 ## License
 
-This project is licenced under the Apache-2.0 license. See the [LICENSE](LICENSE) file for more details.
+This project is licenced under the Apache-2.0 license. See the [LICENSE](LICENSE.md) file for more details.
