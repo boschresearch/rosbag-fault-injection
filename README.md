@@ -8,6 +8,51 @@
 
 Fault injection for [ROS2](https://github.com/ros2) rosbags that supports recording, modifying, and plotting the fault injected rosbags.
 
+## File Structure
+
+This section provides an overview of the project, including its purpose, features, and architecture. For detailed instructions on how to run the repository, please refer to [Getting Started](#getting-started).
+
+This repository has the following structure:
+
+```
+rosbag-fault-injection/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+│   └── installation.sh
+│   └── requirements.txt
+├── app/
+│   ├── num_generator/
+│   └── interfaces/
+├── src/
+│   ├── config.yaml
+│   └── fault_injection.py
+│   └── fault_types.py
+│   └── read_yaml.py
+│   └── plot.py
+│   └── inject.sh
+│   └── record.sh
+└── ...
+```
+
+### .devcontainer/
+- `devcontainer.json`: Configuration file for setting up the development container.
+- `Dockerfile`: Dockerfile to build the development container with all necessary dependencies.
+- `installation.sh`: Shell script to automate the installation of additional tools and dependencies.
+- `requirements.txt`: A file listing Python dependencies to be installed using pip.
+
+### app/
+- Example ROS2 project and custom messages to inject fault into.
+
+### src/
+- `config.yaml`: Configuration file for fault injection parameters.
+- `fault_injection.py`: Main script to perform fault injection on ROS2 rosbags.
+- `fault_types.py`: Defines different types of faults that can be injected.
+- `read_yaml.py`: Utility script to read and parse YAML configuration files.
+- `plot.py`: Script to plot the results of the fault injection.
+- `inject.sh`: Shell script to automate the fault injection process.
+- `record.sh`: Shell script to automate the recording of ROS2 rosbags.
+
 ## Getting Started
 
 ### Prerequisite (at host)
