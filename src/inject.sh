@@ -17,7 +17,7 @@ usage() {
     echo "Options:"
     echo "  -c str      The filename of configuration YAML [Default: config.yaml]"
     echo "          !!! The YAML file should be located in ${PWD}/$(dirname "$0")"
-    echo "  -e          Executable name to re-record the rosbags to see the fault injection effect"
+    echo "  -e str      Executable name to re-record the rosbags to see the fault injection effect"
     echo "  -h          Print manual"
     echo "  -p str      ROS2 package name [Default: num_generator]"
     echo "  -n          Disable rosbag play and plotting after the fault injection [Default: Deactivated]"   
